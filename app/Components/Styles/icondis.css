@@ -1,0 +1,58 @@
+.icon-cont {
+  display: flex;
+  flex-wrap: wrap;
+}
+.icon {
+  width: 8%;
+  min-width: 5vh;
+  margin-top: 20px;
+  margin-right: 10px;
+  transition: 0.2s ease-in-out;
+  animation: floatingAnimate 2s infinite ease-in-out;
+  height: 10%;
+  fill: black;
+}
+.django{
+  width: 6%;
+}
+
+.frappe{
+  width: 6%;
+  margin-left: 1%;
+}
+
+.js{
+  width: 7%;
+}
+.icon:hover {
+  transform: translateY(10px);
+  transition: transform 0.2s ease-in-out;
+}
+
+.icon.react {
+  animation: rotate 10s infinite linear, floatingAnimate 2s infinite ease-in-out;
+}
+
+@keyframes floatingAnimate {
+  0% {
+    scale: 1;
+  }
+
+  70% {
+    scale: 1.1;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}

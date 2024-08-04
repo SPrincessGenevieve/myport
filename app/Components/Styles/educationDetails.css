@@ -1,0 +1,14 @@
+.details-2{
+    text-align: left;
+}
+
+.title{
+    font-weight: bold;
+}
+
+@media (max-width: 768px){
+    .year-cont{
+        margin-left: 20px;
+    }
+}
+

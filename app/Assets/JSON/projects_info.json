@@ -1,0 +1,45 @@
+{
+  "projects": [
+    {
+      "title": "CDORental",
+      "client": "",
+      "role": "React.js Developer",
+      "details": "An online platform ensures seamless communication between lessors and lessees, streamlining interactions with a user-friendly interface and a range of tools. We simplify the leasing process by facilitating viewings, negotiations, and payments, enhancing the experience for both property owners and tenants.",
+      "language": ["#react", "#css", "#django"],
+      "date": "MAY 2024 – ONGOING"
+    },
+    {
+      "title": "eTCMF - Web",
+      "client": "Roads and Traffic Administration (RTA)",
+      "mini-title": "React.js Developer",
+      "details": "A web-based platform has been developed to empower traffic enforcers, enabling them to efficiently monitor traffic violation citations and generate comprehensive reports for improved traffic management and enforcement.",
+      "language": ["#react", "#css", "#django"],
+      "date": "DECEMBER 2023 - PRESENT"
+    },
+    {
+      "title": "eTCMF - Mob",
+      "client": "Roads and Traffic Administration (RTA)",
+      "role": "React Native Developer",
+      "details": "The system enables users to generate citations through manual input or OCR methods, fostering real-time monitoring of violations and facilitating spontaneous data transfers for efficient and immediate information exchange.",
+      "language": ["#react", "#css", "#django"],
+      "date": "DECEMBER 2023 - PRESENT"
+    },
+    {
+      "title": "Portfolio",
+      "client": "",
+      "role": "React.js Developer",
+      "details": "Visit my portfolio website to explore a curated collection of my work, showcasing a blend of web development projects and captivating graphic design pieces. Get a glimpse of my skills, creativity, and dedication to delivering impactful digital solutions.",
+      "language": ["#react", "#css", "#django"],
+      "date": "JANUARY 2023 – PRESENT"
+    },
+    {
+      "title": "MissArt",
+      "client": "MissArt Commissioning Website",
+      "role": "React.js Developer",
+      "details": "An online platform facilitates clients in booking MissArt artists while providing administrators with the capability to post updates on recent art projects for seamless artist-client interactions and project management.",
+      "language": ["#react", "#css", "#django"],
+      "date": "SEPTEMBER 2022 – JANUARY 2023"
+    }
+    
+  ]
+}
