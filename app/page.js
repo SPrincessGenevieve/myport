@@ -40,7 +40,7 @@ export default function Page() {
       <div>
         <Parallax pages={11}>
           <ParallaxLayer offset={0}>
-            <Home></Home>
+            <Home onClick={scrollToContactMe}></Home>
           </ParallaxLayer>
 
           <ParallaxLayer offset={1}>

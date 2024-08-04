@@ -8,7 +8,7 @@ import LineDivide from "./../Components/LineDivide";
 import Image from "next/image";
 
 
-export default function Home() {
+export default function Home({onClick}) {
   return (
     <div className="main-home">
       <Image className="bg" src={bg} alt="bg"></Image>
@@ -28,7 +28,7 @@ export default function Home() {
              
             </p>
             <div className="contact-btn">
-              <button className="contact-me-btn">
+              <button className="contact-me-btn" onClick={onClick}>
                 CONTACT ME <Email style={{ marginLeft: 20 }}></Email>
               </button>
             </div>
