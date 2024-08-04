@@ -1,8 +1,8 @@
 import React from "react";
 import "./Styles/overview.css";
-import WebDev from "./../assets/web-devloper.jpg";
-import ReactDev from "./../assets/react-js-developer.png";
-import GraphicDev from "./../assets/graphic-designer.webp";
+import WebDev from "./../Assets/web-devloper.jpg";
+import ReactDev from "./../Assets/react-js-developer.png";
+import GraphicDev from "./../Assets/graphic-designer.webp";
 import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
