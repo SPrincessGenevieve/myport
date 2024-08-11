@@ -1,0 +1,46 @@
+
+
+@media (max-width: 774px){
+    .tree{
+        margin-top: 1%
+    }
+}
+
+
+
+@media (max-width: 729px){
+    .tree{
+        margin-top: 3%
+    }
+}
+
+
+@media (max-width: 620px){
+    .tree{
+        margin-top: 3%
+    }
+}
+
+@media (max-width: 570px){
+    .tree{
+        margin-top: 3.5%
+    }
+}
+
+@media (max-width: 565px){
+    .tree{
+        margin-top: 3.7%
+    }
+    .L1{
+        margin-top: -1%;
+    }
+}
+
+@media (max-width: 565px){
+    .L1{
+        margin-top: -3%;
+    }
+}
+
+
+

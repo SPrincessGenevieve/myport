@@ -21,74 +21,68 @@ const imageMapping = {
 
 export default function Project() {
   return (
-    <div className="project-cont">
+    <div className="project-container">
       <div className="project-l1">
-        <h2 className="intro-over" style={{ color: "#e66464" }}>
+        <h2 className="intro-proj" style={{ color: "#e66464" }}>
           WHAT I HAVE DONE SO FAR
         </h2>
         <h1 className="over">PROJECTS</h1>
       </div>
-      <div className="element-cont">
-        <div className="image-box">
-          {projects.projects.map((project, index) => (
-            <motion.div
-              initial={{ opacity: 0, translateY: 100 }}
-              whileInView={{ opacity: 1, translateY: 0 }}
-              transition={{
-                bounce: 0.4,
-                type: "spring",
-                duration: 0.5,
-                delay: 0.2,
-              }}
-              className="box-cont"
-              key={index}
-            >
-              <div className="desc-cont-pro">
-                <div className="image-pro">
-                  <Image
-                    className="imge-project"
-                    style={{ borderRadius: 10 }}
-                    src={imageMapping[project.title] || abstract}
-                    alt={project.title}
-                  ></Image>
-                  <p className="title-project">{project.title}</p>
-                  <p className="subtitle-pro">{project.client}</p>
-                  <p className="subtitle-pro date">{project.date}</p>
-                  <p className="minisub-pro">
-                    {project.role || project["mini-title"]}
-                  </p>
-                  <p className="detail-pro">{project.details}</p>
-                  <p className="language">{project.language.join(", ")}</p>
+      <div className="project-items">
+        {projects.projects.map((project, index) => (
+          <>
+            <div className="parent-innter-pro">
+              <div className="inner-item-cont">
+                <motion.div
+                  className="project-cont"
+                  initial={{ opacity: 0, translateY: 100 }}
+                  whileInView={{ opacity: 1, translateY: 0 }}
+                  transition={{
+                    bounce: 0.4,
+                    type: "spring",
+                    duration: 0.5,
+                    delay: 0.2,
+                  }}
+                  key={index}
+                >
+                  <div className="image-cont">
+                    <Image
+                      alt=""
+                      className="project-img"
+                      src={imageMapping[project.title] || abstract}
+                    ></Image>
+                    <p className="title-project">{project.title}</p>
+                    <p className="subtitle-pro">{project.client}</p>
+                    <p className="subtitle-pro date">{project.date}</p>
+                    <p className="minisub-pro">
+                      {project.role || project["mini-title"]}
+                    </p>
+                    <p className="detail-pro">{project.details}</p>
+                    <p className="language">{project.language.join(", ")}</p>
+                  </div>
+                  <div className="line-cont">
+                    <LineDivide></LineDivide>
+                  </div>
+                </motion.div>
+                <div className="date-container">
+                  <motion.div
+                    className="date-cont"
+                    initial={{ opacity: 0, translateY: 100 }}
+                    whileInView={{ opacity: 1, translateY: 0 }}
+                    transition={{
+                      bounce: 0.4,
+                      type: "spring",
+                      duration: 0.5,
+                      delay: 0.2,
+                    }}
+                  >
+                    <p className="date">{project.date}</p>
+                  </motion.div>
                 </div>
               </div>
-              <div className="line-line" >
-                <LineDivide></LineDivide>
-              </div>
-              <motion.div
-                initial={{ opacity: 0, translateX: 100 }}
-                whileInView={{ opacity: 1, translateX: 0 }}
-                transition={{
-                  bounce: 0.4,
-                  type: "spring",
-                  duration: 0.5,
-                  delay: 0.5,
-                }}
-                className="date-cont-pro"
-              >
-                <p
-                  style={{
-                    width: "100%",
-                    fontFamily: "Arial",
-                    fontWeight: 700,
-                  }}
-                  className=""
-                >
-                  {project.date}
-                </p>
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
+            </div>
+          </>
+        ))}
       </div>
     </div>
   );

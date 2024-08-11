@@ -1,0 +1,19 @@
+  
+  .line-divide {
+    background-color: #e66464;
+    width: 0.8vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 200px;
+    background: linear-gradient(#e66464, #e66464, #e66464, #e6646473, #e6646400);
+  }
+  
+  .circle {
+    background-color: rgba(230, 100, 100, 1);
+    width: 3vh;
+    height: 3vh;
+    border-radius: 50px;
+  }
+  

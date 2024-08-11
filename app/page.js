@@ -43,10 +43,10 @@ export default function Page() {
             <Home onClick={scrollToContactMe}></Home>
           </ParallaxLayer>
 
-          <ParallaxLayer offset={1}>
+          <ParallaxLayer offset={1} factor={10}>
             <About></About>
           </ParallaxLayer>
-
+{/* 
           <ParallaxLayer style={{ marginTop: "30%" }} offset={3}>
             <Project></Project>
             <div className="next-cont">
@@ -54,7 +54,7 @@ export default function Page() {
                 <Image className="next" src={next} alt="next" />
               </button>
             </div>
-          </ParallaxLayer>
+          </ParallaxLayer> */}
           <ParallaxLayer
             offset={offset}
             speed={0.5}
@@ -62,6 +62,7 @@ export default function Page() {
             style={{
               backgroundImage: `url(${L1.src})`,
               backgroundSize: "cover",
+              backgroundColor: "blue"
 
             }}
           ></ParallaxLayer>

@@ -3,7 +3,8 @@
 .later3,
 .later4,
 .later5 {
-  /* margin-top: 40%; */
+  bottom: 1;
+  position: absolute;
 }
 .contacts {
   margin-top: 70%;

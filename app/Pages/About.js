@@ -1,83 +1,71 @@
-"use client"; 
+"use client";
 
-import LineDivide from './../Components/LineDivide'
-import EducationDetails from './../Components/EducationDetails'
-import Overview from './../Components/Overview'
-import './../Styles/About.css'
+import LineDivide from "./../Components/LineDivide";
+import EducationDetails from "./../Components/EducationDetails";
+import Overview from "./Overview";
+import { useInView } from "react-intersection-observer";
+import "./../Styles/About.css";
 import hat from "./../Assets/hat.png";
-import cert from "./../Assets/cert.svg";
-import { motion, Variants } from "framer-motion";
-import Image from 'next/image';
+import cert from "./../Assets/cert-svg.png";
+import { motion, useAnimation } from "framer-motion";
+import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
+import Project from "./Project";
 
 export default function About() {
-  const scrollRef = useRef(null);
-  const [animationPlayed, setAnimationPlayed] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+  const [refHat, inViewHat] = useInView({ triggerOnce: true });
+  const [refCert, inViewCert] = useInView({ triggerOnce: true });
+
+  const controlsHat = useAnimation();
+  const controlsCert = useAnimation();
 
   useEffect(() => {
-    setAnimationPlayed(true);
+    if (inViewHat) {
+      controlsHat.start({
+        y: 0,
+        rotate: 360,
+        transition: {
+          type: "spring",
+          bounce: 0.4,
+          stiffness: 100,
+          damping: 14,
+          delay: 0.2,
+        },
+      });
+    }
+  }, [inViewHat, controlsHat]);
 
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const hatVariant = {
-    offscreen: {
-      y: 150,
-      rotate: -200,
-    },
-    onscreen: {
-      y: screenWidth > 1000 ? -300 : -60,
-      rotate: 0,
-      transition: {
-        type: 'spring',
-        bounce: 0.4,
-        duration: 1,
-      },
-    },
-  };
-
-  const certVariant = {
-    offscreen: {
-      x: -160,
-    },
-    onscreen: {
-      x: screenWidth > -1200 ? 100 : -1000,
-      rotate: 0,
-      transition: {
-        type: 'spring',
-        bounce: 0.4,
-        duration: 1,
-      },
-    },
-  };
+  useEffect(() => {
+    if (inViewCert) {
+      controlsCert.start({
+        x: 0,
+        rotate: 0,
+        transition: {
+          type: "spring",
+          bounce: 0.4,
+          stiffness: 100,
+          damping: 14,
+          delay: 0.2,
+        },
+      });
+    }
+  }, [inViewCert, controlsCert]);
 
   return (
-    <div className="about-cont edu-cert">
+    <div className="about-parent">
       <div>
         <Overview></Overview>
       </div>
-      <div className="about-container upper">
-        <motion.div
-          variants={hatVariant}
-          initial="offscreen"
-          whileInView="onscreen"
-          animate="offscreen"
-          exit="onscreen"
-          className="cert-container"
-        >
-          <Image className="hat" alt="hat" src={hat}></Image>
-        </motion.div>
 
-        <div className="education-container">
+      <div className="education-container" ref={refHat}>
+        <motion.div
+          className="hat-container"
+          initial={{ y: 600, rotate: 0 }} // Start from below the container
+          animate={controlsHat}
+        >
+          <Image className="hat" alt="hat" src={hat} />
+        </motion.div>
+        <motion.div className="education-details">
           <motion.div
             initial={{ opacity: 0, translateY: 100 }}
             whileInView={{ opacity: 1, translateY: 0 }}
@@ -85,13 +73,13 @@ export default function About() {
               bounce: 0.4,
               type: "spring",
               duration: 1,
-              delay: 0.7,
+              delay: 0.2,
             }}
           >
             <LineDivide></LineDivide>
           </motion.div>
 
-          <div className="title-educ">
+          <motion.div className="education-text">
             <motion.h1
               initial={{ opacity: 0, translateX: -100 }}
               whileInView={{ opacity: 1, translateX: 0 }}
@@ -113,29 +101,28 @@ export default function About() {
               }
               campus={"CDO Campus (USTP CDO)"}
             />
+            <br></br>
+            <br></br>
             <EducationDetails
               level={"SECONDARY"}
               year={"2019-2020"}
               course={"Science, Technology, Engineering and Mathematics (STEM)"}
               school={"Fatima College of Camiguin"}
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
-      <div className="about-container lower">
+      
+      <div className="certificate-container" ref={refCert}>
         <motion.div
-          variants={certVariant}
-          initial="offscreen"
-          whileInView="onscreen"
-          animate="offscreen"
-          exit="onscreen"
           className="cert-container"
+          initial={{ x: -600 }} // Start from below the container
+          animate={controlsCert}
         >
-          <Image className="cert" alt="cert" src={cert}></Image>
+          <Image className="hat" alt="cert" src={cert} />
         </motion.div>
-
-        <div className="education-container certificate">
+        <motion.div className="certificate-details">
           <motion.div
             initial={{ opacity: 0, translateY: 100 }}
             whileInView={{ opacity: 1, translateY: 0 }}
@@ -143,13 +130,13 @@ export default function About() {
               bounce: 0.4,
               type: "spring",
               duration: 1,
-              delay: 0.7,
+              delay: 0.2,
             }}
           >
             <LineDivide></LineDivide>
           </motion.div>
 
-          <div className="title-educ">
+          <motion.div className="certificate-text">
             <motion.h1
               initial={{ opacity: 0, translateX: -100 }}
               whileInView={{ opacity: 1, translateX: 0 }}
@@ -158,7 +145,7 @@ export default function About() {
                 type: "spring",
                 duration: 1,
               }}
-              className="edu-text cer-text"
+              className="edu-text"
             >
               CERTIFICATES
             </motion.h1>
@@ -176,7 +163,9 @@ export default function About() {
               level={"2ND RUNNER UP for BEST CAPSTONE POSTER"}
               title={"WEB AND MOBILE APPLICATION FOR E-TICKETING CITATION"}
               year={"2023-2024"}
-              course={"ITnnovation Expo 2024 of the Society if Information Technology Enthusiast - USTP CDO"}
+              course={
+                "ITnnovation Expo 2024 of the Society if Information Technology Enthusiast - USTP CDO"
+              }
               school={
                 "University of Science and Technology of Southern Philippines"
               }
@@ -200,10 +189,12 @@ export default function About() {
               }
               campus={"CDO Campus (USTP CDO)"}
             />
-            
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
+      <div>
+        <Project></Project>
+     </div>
     </div>
   );
 }

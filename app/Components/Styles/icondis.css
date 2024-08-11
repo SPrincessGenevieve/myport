@@ -56,3 +56,33 @@
     transform: rotate(-360deg);
   }
 }
+
+
+@media (max-width: 925px) and (min-width: 500px){
+  .icon-cont{
+    width: 60%;
+    height: auto;
+  }
+  .icon{
+    width: 5vh;
+  }
+}
+@media (max-width: 594px) and (min-width: 300px){
+  .icon-cont{
+    width: 100%;
+    height: auto;
+  }
+  .icon{
+    width: 6vh;
+  }
+}
+
+@media (max-width: 922px) and (max-height: 2048px){
+  .icon-cont{
+    width: 100%;
+    height: auto;
+  }
+  .icon{
+    width: 6vh;
+  }
+}
